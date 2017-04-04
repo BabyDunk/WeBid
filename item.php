@@ -105,6 +105,11 @@ if (strtotime($start) > time()) {
     $difference = $current_time->diff($end_time);
     $ending_time = '';
     $date_elements = 0;
+    if ($difference->m > 0) {
+        $daymsg = ($difference->m == 1) ? $MSG['126d'] : $MSG['126c'];
+        $ending_time .= $difference->m . ' ' . $daymsg . ' ';
+        $date_elements++;
+    }
     if ($difference->d > 0) {
         $daymsg = ($difference->d == 1) ? $MSG['126b'] : $MSG['126'];
         $ending_time .= $difference->d . ' ' . $daymsg . ' ';
