@@ -77,7 +77,7 @@ $(document).ready(function() {
 				<div class="panel panel-default">
 					<div class="panel-heading"><span class="label label-default">{L_113}: {ID}</span></div>
 					<div class="panel-body">
-						<img class="thumbnail img-responsive center-block" src="{SITEURL}/themes/{THEME}/img/no-picture-gallery.png" alt="no picture" width="430px" />
+						<img class="thumbnail img-responsive center-block" src="{NOPICT_URL}" alt="no picture" width="430px" />
 					</div>
 					<div class="panel-footer">{L_611} <span style="color:#ff3300"><b>{AUCTION_VIEWS}</b></span> {L_612}</div>
 				</div>
