@@ -77,7 +77,9 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'recall') {
 switch ($_SESSION['action']) {
     case 4: // finalise auction (submit to db)
         // does the user need to login before they can submit the auction?
-        if ($system->SETTINGS['usersauth'] == 'y') {
+        //Setting $_SESSION for No Back Button
+        $_SESSION['previous'] = basename($_SERVER['PHP_SELF']);
+	if ($system->SETTINGS['usersauth'] == 'y') {
             // hash and check the password
             include PACKAGE_PATH . 'PasswordHash.php';
             $phpass = new PasswordHash(8, false);
@@ -304,6 +306,7 @@ switch ($_SESSION['action']) {
                     'TITLE' => $MSG['028'],
                     'PAGE' => 3,
                     'AUCTION_ID' => $auction_id,
+		    'REDIRECT' => header('location: sellsuccess.php?is=done&item='.$auction_id.'&time='.$a_starts.'&duration='.$duration.''),
                     'MESSAGE' => sprintf($MSG['102'], $auction_id, $dt->formatDate($a_ends, 'D j M \a\t g:ia'))
                     ));
             break;
